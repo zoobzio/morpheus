@@ -137,22 +137,32 @@ services:
       minio:
         condition: service_healthy
     environment:
-      APP_PORT: "8080"
-      APP_DB_HOST: postgres
-      APP_DB_PORT: "5432"
-      APP_DB_NAME: sumatra
-      APP_DB_USER: sumatra
-      APP_DB_PASSWORD: sumatra
-      APP_DB_SSLMODE: disable
-      APP_REDIS_ADDR: redis:6379
-      APP_STORAGE_ENDPOINT: minio:9000
-      APP_STORAGE_ACCESS_KEY: sumatra
-      APP_STORAGE_SECRET_KEY: sumatradev
-      APP_STORAGE_BUCKET: sumatra
-      APP_STORAGE_USE_SSL: "false"
-      APP_ENCRYPTION_KEY: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      MORPHEUS_PORT: "8080"
+      MORPHEUS_ENV: development
+      MORPHEUS_DB_HOST: postgres
+      MORPHEUS_DB_PORT: "5432"
+      MORPHEUS_DB_NAME: morpheus
+      MORPHEUS_DB_USER: morpheus
+      MORPHEUS_DB_PASSWORD: morpheus
+      MORPHEUS_DB_SSLMODE: disable
+      MORPHEUS_REDIS_HOST: redis
+      MORPHEUS_REDIS_PORT: "6379"
+      MORPHEUS_REDIS_PASSWORD: ""
+      MORPHEUS_REDIS_DB: "0"
+      MORPHEUS_GITHUB_CLIENT_ID: ""
+      MORPHEUS_GITHUB_CLIENT_SECRET: ""
+      MORPHEUS_GITHUB_CALLBACK_URL: "http://localhost:8080/auth/github/callback"
+      MORPHEUS_SESSION_TTL: "168h"
+      MORPHEUS_SESSION_COOKIE_NAME: "session"
+      MORPHEUS_SESSION_COOKIE_DOMAIN: ""
+      MORPHEUS_SESSION_COOKIE_SECURE: "false"
+      MORPHEUS_SESSION_COOKIE_PATH: "/"
+      MORPHEUS_SESSION_STATE_SECRET: "change-me-to-a-random-32-char-secret"
+      MORPHEUS_ENCRYPTION_KEY: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      MORPHEUS_POSTMARK_SERVER_TOKEN: ""
+      MORPHEUS_POSTMARK_DEFAULT_FROM: ""
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
-      OTEL_SERVICE_NAME: sumatra
+      OTEL_SERVICE_NAME: morpheus
     ports:
       - "8080:8080"
     volumes:

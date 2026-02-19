@@ -8,10 +8,12 @@ import "github.com/zoobzio/capitan"
 // operational events, not domain lifecycle events for consumers.
 var (
 	StartupDatabaseConnected = capitan.NewSignal("sumatra.startup.database.connected", "Database connection established")
+	StartupRedisConnected    = capitan.NewSignal("sumatra.startup.redis.connected", "Redis connection established")
 	StartupStorageConnected  = capitan.NewSignal("sumatra.startup.storage.connected", "Object storage connection established")
 	StartupServicesReady     = capitan.NewSignal("sumatra.startup.services.ready", "All services registered")
 	StartupOTELReady         = capitan.NewSignal("sumatra.startup.otel.ready", "OpenTelemetry providers initialized")
 	StartupApertureReady     = capitan.NewSignal("sumatra.startup.aperture.ready", "Aperture observability bridge initialized")
+	StartupMeshReady         = capitan.NewSignal("sumatra.startup.mesh.ready", "Aegis mesh node started")
 	StartupServerListening   = capitan.NewSignal("sumatra.startup.server.listening", "HTTP server listening")
 	StartupFailed            = capitan.NewSignal("sumatra.startup.failed", "Server startup failed")
 )
